@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Sebastian",
+      "last_name": "Eschweiler",
+      "email": "sebastian@codingthesmartway.com",
+      "password": "123465789",
+      "conPassword": "123465789"
+    },
+    {
+      "firstName": "bexruz",
+      "lastName": "baxronov",
+      "email": "bexruz@gmail.com",
+      "password": "9695113",
+      "conPassword": "9695113",
+      "id": 2
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 3
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 4
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 5
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 6
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 7
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "bexruz@gmail.com",
+      "password": null,
+      "conPassword": null,
+      "id": 8
+    },
+    {
+      "firstName": "dfnkjvkvj",
+      "lastName": "ewf",
+      "email": "dcsc@gmail.com",
+      "password": "csdcsd",
+      "conPassword": "cdscdsc",
+      "id": 9
+    }
+  ]
+}
