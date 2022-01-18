@@ -1,4 +1,4 @@
-# my-vuetify
+# Last FM
 
 ## Project setup
 ```
