@@ -63,14 +63,6 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #fff;
-}
-::-webkit-scrollbar-thumb {
-  background: #21bbd3;
+  list-style-type: none;
 }
 </style>

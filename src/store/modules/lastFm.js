@@ -21,7 +21,7 @@ const actions = {
       )
       .then((res) => {
         console.log(res);
-        commit("GET_LIST", res.data);
+        commit("GET_LIST", res.data.albums.album);
       })
       .catch((err) => console.log(err));
   },
