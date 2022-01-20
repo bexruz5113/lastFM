@@ -91,6 +91,7 @@
                       list.name
                     }}</a
                     ><br />
+                    xaxaxa
                     <a
                       class="text-caption black--text"
                       :href="list.artist.url"
