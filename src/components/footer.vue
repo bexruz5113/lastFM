@@ -39,13 +39,13 @@
     <v-container>
       <v-row class="d-flex py-5">
         <v-col cols="12" md="8">
-          <div class="d-sm-flex flex-wrap justify-sm-space-around">
-            <button class="white--text" active>English</button>
-            <button class="grey--text">Русский</button>
-            <button class="grey--text">Español</button>
-            <button class="grey--text">Français</button>
-            <button class="grey--text">Italiano</button>
-            <button class="grey--text">日本語</button>
+          <div class="d-sm-flex justify-sm-space-around d-block">
+            <div><button class="white--text" active>English</button></div>
+            <div><button class="grey--text">Русский</button></div>
+            <div><button class="grey--text">Español</button></div>
+            <div><button class="grey--text">Français</button></div>
+            <div><button class="grey--text">Italiano</button></div>
+            <div><button class="grey--text">日本語</button></div>
           </div>
           <div class="d-flex flex-wrap py-5">
             <p class="grey--text mb-0">
@@ -72,7 +72,7 @@
             </p>
           </div>
         </v-col>
-        <v-col cols="12" md="4" class="text-end">
+        <v-col cols="12" md="4" class="text-end px-3">
           <p class="white--text mb-0">Audioscrobbler</p>
           <img
             width="60"

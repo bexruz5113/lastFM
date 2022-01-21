@@ -9,19 +9,19 @@ const getters = {
   },
 };
 const mutations = {
-  GET_LIST(state, payload) {
+  GET_TEG(state, payload) {
     state.music = payload;
   },
 };
 const actions = {
-  getMusicList({ commit }) {
+  getTegTopAlbums({ commit }) {
     axios
       .get(
         "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=disco&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
       )
       .then((res) => {
         console.log(res);
-        commit("GET_LIST", res.data.albums.album);
+        commit("GET_TEG", res.data.albums.album);
       })
       .catch((err) => console.log(err));
   },

@@ -2,7 +2,7 @@
   <div>
     <v-container class="mx-auto">
       <v-row class="py-5">
-        <v-col cols="12" md="6"><p class="text-h4">Top Albums</p></v-col>
+        <v-col cols="12" md="6"><p class="text-h4 px-3">Top Albums</p></v-col>
         <v-col cols="12" md="6">
           <v-toolbar flat color="transparent">
             <v-text-field
@@ -21,7 +21,7 @@
               md="6"
               lg="4"
               xl="3"
-              class="my-3 mx-auto"
+              class="my-3 px-3 mx-auto"
               v-for="list in findMusic"
               :key="list.id"
             >
@@ -87,11 +87,11 @@
                 </div>
                 <div class="px-2 d-md-none d-block">
                   <span>
-                    <a class="text-caption black--text" :href="list.url">{{
-                      list.name
-                    }}</a
+                    <a
+                      class="text-caption font-weight-black black--text"
+                      :href="list.url"
+                      >{{ list.name }}</a
                     ><br />
-                    xaxaxa
                     <a
                       class="text-caption black--text"
                       :href="list.artist.url"
@@ -155,10 +155,10 @@ export default {
     },
   },
   mounted() {
-    this.getMusicList();
+    this.getTegTopAlbums();
   },
   methods: {
-    ...mapActions("music", ["getMusicList"]),
+    ...mapActions("music", ["getTegTopAlbums"]),
   },
 };
 </script>
