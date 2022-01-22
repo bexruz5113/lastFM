@@ -18,7 +18,15 @@
 
         <v-col cols="12" md="8">
           <v-row>
+            <v-col class="text-center" cols="12" v-if="!findMusic.length">
+              <v-progress-circular
+                :size="100"
+                color="primary"
+                indeterminate
+              ></v-progress-circular>
+            </v-col>
             <v-col
+              v-else
               cols="12"
               md="6"
               lg="4"

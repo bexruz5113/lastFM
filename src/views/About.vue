@@ -18,7 +18,15 @@
 
         <v-col cols="12" md="8">
           <v-row>
+            <v-col class="text-center" cols="12" v-if="!findMusic.length">
+              <v-progress-circular
+                :size="100"
+                color="primary"
+                indeterminate
+              ></v-progress-circular>
+            </v-col>
             <v-col
+              v-else
               cols="12"
               md="6"
               lg="4"
@@ -112,6 +120,7 @@
             </v-col>
           </v-row>
         </v-col>
+        <!--  -->
         <v-col cols="12" md="4" class="px-3">
           <div><p class="text-h5">Sponsored Topics</p></div>
           <div class="my-2" v-for="(base, id) in bases" :key="id">
@@ -174,7 +183,9 @@ export default {
   text-decoration: none;
   box-sizing: border-box;
 }
-
+.v-progress-circular {
+  margin: 1rem;
+}
 .imgPosition {
   position: relative;
   margin: 0 auto;
