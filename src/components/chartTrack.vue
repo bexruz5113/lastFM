@@ -3,7 +3,7 @@
     <v-container class="mx-auto">
       <v-row class="py-5">
         <v-col cols="12" md="6"
-          ><p class="text-h4 px-3">Tag Top Albums</p></v-col
+          ><p class="text-h4 px-3">Chart Top Track</p></v-col
         >
         <v-col cols="12" md="6">
           <v-toolbar flat color="transparent">
@@ -155,9 +155,9 @@ export default {
   }),
 
   computed: {
-    ...mapGetters("music", ["music"]),
+    ...mapGetters("track", ["track"]),
     findMusic: function () {
-      return this.music.filter((list) => {
+      return this.track.filter((list) => {
         return list.name.includes(
           this.search.replace(/./, (c) => c.toUpperCase())
         );
@@ -165,10 +165,10 @@ export default {
     },
   },
   mounted() {
-    this.getTegTopAlbums();
+    this.getChartTopTrack();
   },
   methods: {
-    ...mapActions("music", ["getTegTopAlbums"]),
+    ...mapActions("track", ["getChartTopTrack"]),
   },
 };
 </script>

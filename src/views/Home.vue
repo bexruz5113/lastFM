@@ -8,8 +8,8 @@
       <router-link class="grey black--text mx-3 pa-2" to="/about"
         >Artist Top Albums</router-link
       >
-      <router-link class="grey black--text mx-3 pa-2" to="/topAlbum"
-        >Top Albums</router-link
+      <router-link class="grey black--text mx-3 pa-2" to="/track"
+        >Chart Top Track</router-link
       >
     </v-container>
   </div>

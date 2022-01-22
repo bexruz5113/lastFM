@@ -83,9 +83,12 @@
                         <img width="30" src="../assets/play.png" alt="" /></a
                     ></span> -->
                   </div>
+                  <!-- <span class="shadowPosition"> </span> -->
                 </div>
                 <div class="d-md-block d-none">
-                  <p class="text-caption mb-0">Popular right now on Last.fm</p>
+                  <p class="text-caption px-2 py-3 mb-0">
+                    Popular right now on Last.fm
+                  </p>
                 </div>
                 <div class="px-2 d-md-none d-block">
                   <span>
@@ -117,7 +120,7 @@
               style="width: 100%"
               depressed
               small
-              color="grey lighten-1"
+              color="grey lighten-2"
             >
               <span> {{ base.id }}. {{ base.title }}</span>
               <span><v-icon dark left> mdi-arrow-right </v-icon></span>
@@ -176,6 +179,15 @@ export default {
   position: relative;
   margin: 0 auto;
 }
+// .shadowPosition {
+//   position: absolute;
+//   width: 100%;
+//   background-color: rgba(0, 0, 0, 0.2);
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+// }
 .playPosition {
   position: absolute;
   top: 18px;
@@ -185,5 +197,6 @@ export default {
   position: absolute;
   bottom: 25px;
   left: 18px;
+  order: 100;
 }
 </style>

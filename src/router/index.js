@@ -3,24 +3,29 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import About from "../views/About.vue";
 import TopAlbum from "../views/TopAlbum.vue";
+import Track from "../views/Track.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: Home,
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About,
   },
   {
     path: "/topAlbum",
     name: "TopAlbum",
     component: TopAlbum,
+  },
+  {
+    path: "/track",
+    component: Track,
   },
 ];
 
