@@ -133,7 +133,7 @@
               style="width: 100%"
               depressed
               small
-              color="grey lighten-1"
+              color="grey lighten-2"
             >
               <span> {{ base.id }}. {{ base.title }}</span>
               <span><v-icon dark left> mdi-arrow-right </v-icon></span>
@@ -186,6 +186,7 @@ export default {
   margin: 0;
   text-decoration: none;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 .imgPosition {

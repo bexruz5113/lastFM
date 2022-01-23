@@ -73,5 +73,6 @@ export default {
   padding: 0;
   box-sizing: border-box;
   list-style-type: none;
+  scroll-behavior: smooth;
 }
 </style>

@@ -5,17 +5,20 @@
       <router-link
         class="grey lighten-2 rounded black--text mx-3 py-2 px-4"
         to="/topAlbum"
-        >Tag Top Albums</router-link
+        ><v-icon dense color="blue-grey darken-2"> mdi-call-split </v-icon> Tag
+        Top Albums</router-link
       >
       <router-link
         class="grey lighten-2 rounded black--text mx-3 py-2 px-4"
         to="/about"
-        >Artist Top Albums</router-link
+        ><v-icon dense color="blue-grey darken-2"> mdi-call-split </v-icon>
+        Artist Top Albums</router-link
       >
       <router-link
         class="grey lighten-2 rounded black--text mx-3 py-2 px-4"
         to="/track"
-        >Chart Top Track</router-link
+        ><v-icon dense color="blue-grey darken-2"> mdi-call-split </v-icon>
+        Chart Top Track</router-link
       >
     </v-container>
   </div>

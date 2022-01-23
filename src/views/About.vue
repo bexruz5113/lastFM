@@ -36,7 +36,13 @@
               :key="list.id"
             >
               <v-card
-                class="mx-auto d-md-block d-flex align-items-center"
+                class="
+                  grey
+                  lighter-2
+                  mx-auto
+                  d-md-block d-flex
+                  align-items-center
+                "
                 outlined
               >
                 <!-- <v-list-item three-line>
@@ -86,12 +92,7 @@
                     v-if="picture.size === 'medium'"
                   >
                     <img style="width: 100%" :src="picture['#text']" />
-                    <!-- <span class="playPosition"
-                      ><a href="https://www.last.fm/music/BTS">
-                        <img width="30" src="../assets/play.png" alt="" /></a
-                    ></span> -->
                   </div>
-                  <!-- <span class="shadowPosition"> </span> -->
                 </div>
                 <div class="d-md-block d-none">
                   <p class="text-caption px-2 py-3 mb-0">
@@ -114,13 +115,9 @@
                   <p class="text-caption mb-0">Popular right now on Last.fm</p>
                 </div>
               </v-card>
-              <!-- <v-card elevation="9" outlined>
-            <a :href="list.url">{{ list.name }}</a>
-          </v-card> -->
             </v-col>
           </v-row>
         </v-col>
-        <!--  -->
         <v-col cols="12" md="4" class="px-3">
           <div><p class="text-h5">Sponsored Topics</p></div>
           <div class="my-2" v-for="(base, id) in bases" :key="id">
@@ -190,15 +187,6 @@ export default {
   position: relative;
   margin: 0 auto;
 }
-// .shadowPosition {
-//   position: absolute;
-//   width: 100%;
-//   background-color: rgba(0, 0, 0, 0.2);
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-// }
 .playPosition {
   position: absolute;
   top: 18px;

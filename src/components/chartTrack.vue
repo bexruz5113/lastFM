@@ -45,22 +45,6 @@
                 "
                 outlined
               >
-                <!-- <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="text-h5 mb-1">
-                    {{ list.artist.name }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    list.artist.mbid
-                  }}</v-list-item-subtitle>
-                </v-list-item-content>
-
-                <v-list-item-action>
-                  <a href="https://www.last.fm/music/BTS">
-                    <img width="60" src="../assets/play.png" alt=""
-                  /></a>
-                </v-list-item-action>
-              </v-list-item> -->
                 <div
                   class="d-flex justify-space-around"
                   v-for="(picture, index) in list.image"
@@ -70,7 +54,7 @@
                     class="imgPosition d-md-block d-none"
                     v-if="picture.size === 'extralarge'"
                   >
-                    <img style="width: 100%" :src="picture['#text']" />
+                    <img style="width: 100%" src="../assets/download.jpg" />
                     <span class="playPosition"
                       ><a href="https://www.last.fm/music/BTS">
                         <img width="40" src="../assets/play.png" alt="" /></a
@@ -91,11 +75,7 @@
                     class="imgPosition d-md-none d-block"
                     v-if="picture.size === 'medium'"
                   >
-                    <img style="width: 100%" :src="picture['#text']" />
-                    <!-- <span class="playPosition"
-                      ><a href="https://www.last.fm/music/BTS">
-                        <img width="30" src="../assets/play.png" alt="" /></a
-                    ></span> -->
+                    <img style="max-width: 80px" src="../assets/download.jpg" />
                   </div>
                 </div>
                 <div class="d-md-block d-none">
@@ -119,9 +99,6 @@
                   <p class="text-caption mb-0">Popular right now on Last.fm</p>
                 </div>
               </v-card>
-              <!-- <v-card elevation="9" outlined>
-            <a :href="list.url">{{ list.name }}</a>
-          </v-card> -->
             </v-col>
           </v-row>
         </v-col>
