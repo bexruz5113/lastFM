@@ -3,7 +3,7 @@
     <v-container class="mx-auto">
       <v-row class="py-5">
         <v-col cols="12" md="6"
-          ><p class="text-h4 px-3">Tag Top Albums</p></v-col
+          ><p class="text-h4 px-3">Top Tag Albums</p></v-col
         >
         <v-col cols="12" md="6">
           <v-toolbar flat color="transparent">

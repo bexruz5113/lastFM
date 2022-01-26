@@ -19,12 +19,13 @@ const routes = [
     component: About,
   },
   {
-    path: "/topAlbum",
+    path: "/top-album",
     name: "TopAlbum",
     component: TopAlbum,
   },
   {
     path: "/track",
+    name: "Track",
     component: Track,
   },
 ];

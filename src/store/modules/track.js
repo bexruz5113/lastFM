@@ -15,10 +15,10 @@ const mutations = {
   },
 };
 const actions = {
-  getChartTopTrack({ commit }) {
-    axios
+  async getChartTopTrack({ commit }) {
+    await axios
       .get(
-        "http://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&artist=cher&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
+        "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&artist=cher&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
       )
       .then((res) => {
         console.log(res);

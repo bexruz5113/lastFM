@@ -67,10 +67,11 @@
                   :key="index"
                 >
                   <div
-                    class="imgPosition d-md-block d-none"
                     v-if="picture.size === 'extralarge'"
+                    class="imgPosition d-md-block d-none"
                   >
                     <img style="width: 100%" :src="picture['#text']" />
+
                     <span class="playPosition"
                       ><a href="https://www.last.fm/music/BTS">
                         <img width="40" src="../assets/play.png" alt="" /></a

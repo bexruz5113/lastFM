@@ -14,10 +14,10 @@ const mutations = {
   },
 };
 const actions = {
-  getTegTopAlbums({ commit }) {
-    axios
+  async getTegTopAlbums({ commit }) {
+    await axios
       .get(
-        "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=disco&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
+        "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=jazz&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
       )
       .then((res) => {
         console.log(res);
