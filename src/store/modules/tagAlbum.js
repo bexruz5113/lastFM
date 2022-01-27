@@ -1,27 +1,27 @@
 import axios from "axios";
 
 const state = () => ({
-  music: [],
+  album: [],
 });
 const getters = {
-  music(state) {
-    return state.music;
+  album(state) {
+    return state.album;
   },
 };
 const mutations = {
-  GET_TEG(state, payload) {
-    state.music = payload;
+  GET_TAG(state, payload) {
+    state.album = payload;
   },
 };
 const actions = {
-  async getTegTopAlbums({ commit }) {
+  async getTagTopAlbums({ commit }, payload) {
     await axios
       .get(
-        "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=jazz&api_key=524389732c4c562cf4deb139ddb0c14f&format=json"
+        `https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=${payload}&api_key=524389732c4c562cf4deb139ddb0c14f&format=json`
       )
       .then((res) => {
         console.log(res);
-        commit("GET_TEG", res.data.albums.album);
+        commit("GET_TAG", res.data.albums.album);
       })
       .catch((err) => console.log(err));
   },

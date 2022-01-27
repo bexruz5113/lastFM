@@ -2,8 +2,14 @@
   <div>
     <v-container class="mx-auto">
       <v-row class="py-5">
+        <v-col cols="12" class="pa-5">
+          <v-form ref="form" @submit.prevent="getArtist" lazy-validation>
+            <v-select v-model="artistName" :items="items" required></v-select>
+            <v-btn class="mr-4" type="submit"> submit </v-btn>
+          </v-form>
+        </v-col>
         <v-col cols="12" md="6"
-          ><p class="text-h4 px-3">Artists Top Albums</p></v-col
+          ><p class="text-h4 px-3">Top Artists Albums</p></v-col
         >
         <v-col cols="12" md="6">
           <v-toolbar flat color="transparent">
@@ -73,7 +79,7 @@
                     <img style="width: 100%" :src="picture['#text']" />
 
                     <span class="playPosition"
-                      ><a href="https://www.last.fm/music/BTS">
+                      ><a :href="list.url">
                         <img width="40" src="../assets/play.png" alt="" /></a
                     ></span>
                     <span class="linkPosition">
@@ -146,8 +152,10 @@ export default {
 
   data: () => ({
     message: "assalomu alekum",
+    artistName: "jony",
     search: "",
     foundBases: [],
+    items: ["jony", "gafur", "elman", "eminem", "andro"],
     bases: [
       { id: 1, title: "Audio Streaming Platforms" },
       { id: 2, title: "Make Your Own Radio Station" },
@@ -167,10 +175,14 @@ export default {
     },
   },
   mounted() {
-    this.getArtistTopAlbums();
+    this.getArtistTopAlbums(this.artistName);
   },
   methods: {
     ...mapActions("artist", ["getArtistTopAlbums"]),
+    getArtist() {
+      console.log(this.artistName);
+      this.getArtistTopAlbums(this.artistName);
+    },
   },
 };
 </script>

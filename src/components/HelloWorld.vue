@@ -2,6 +2,12 @@
   <div>
     <v-container class="mx-auto">
       <v-row class="py-5">
+        <v-col cols="12" class="pa-5">
+          <v-form ref="form" @submit.prevent="getTag" lazy-validation>
+            <v-select v-model="tagName" :items="items" required></v-select>
+            <v-btn class="mr-4" type="submit"> submit </v-btn>
+          </v-form></v-col
+        >
         <v-col cols="12" md="6"
           ><p class="text-h4 px-3">Top Tag Albums</p></v-col
         >
@@ -18,7 +24,7 @@
 
         <v-col cols="12" md="8">
           <v-row>
-            <v-col class="text-center" cols="12" v-if="!findMusic.length">
+            <v-col class="text-center" cols="12" v-if="!findAlbum.length">
               <v-progress-circular
                 :size="100"
                 color="primary"
@@ -32,7 +38,7 @@
               lg="4"
               xl="3"
               class="my-3 px-3 mx-auto"
-              v-for="list in findMusic"
+              v-for="list in findAlbum"
               :key="list.id"
             >
               <v-card
@@ -151,9 +157,10 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    message: "assalomu alekum",
     search: "",
+    tagName: "pop",
     foundBases: [],
+    items: ["rock", "disco", "jazz", "pop"],
     bases: [
       { id: 1, title: "Audio Streaming Platforms" },
       { id: 2, title: "Make Your Own Radio Station" },
@@ -163,9 +170,9 @@ export default {
   }),
 
   computed: {
-    ...mapGetters("music", ["music"]),
-    findMusic: function () {
-      return this.music.filter((list) => {
+    ...mapGetters("album", ["album"]),
+    findAlbum: function () {
+      return this.album.filter((list) => {
         return list.name.includes(
           this.search.replace(/./, (c) => c.toUpperCase())
         );
@@ -173,10 +180,13 @@ export default {
     },
   },
   mounted() {
-    this.getTegTopAlbums();
+    this.getTagTopAlbums(this.tagName);
   },
   methods: {
-    ...mapActions("music", ["getTegTopAlbums"]),
+    ...mapActions("album", ["getTagTopAlbums"]),
+    getTag() {
+      this.getTagTopAlbums(this.tagName);
+    },
   },
 };
 </script>
