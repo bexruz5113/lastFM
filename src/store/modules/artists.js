@@ -18,7 +18,7 @@ const actions = {
   async getArtistTopAlbums({ commit }, payload) {
     await axios
       .get(
-        `http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${payload}&api_key=524389732c4c562cf4deb139ddb0c14f&format=json`
+        `https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=${payload}&api_key=524389732c4c562cf4deb139ddb0c14f&format=json`
       )
       .then((res) => {
         console.log(res);

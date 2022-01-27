@@ -3,8 +3,8 @@
     <v-container class="py-8">
       <p class="text-h4 py-5">All the Top Albums</p>
 
-      <div class="d-flex">
-        <div class="mx-4">
+      <div class="d-md-flex d-block">
+        <div class="mx-4 py-2">
           <!-- <v-menu transition="slide-x-transition" bottom right>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
@@ -38,7 +38,7 @@
             Top Albums</router-link
           >
         </div>
-        <div class="mx-4">
+        <div class="mx-4 py-2">
           <!-- <v-menu transition="slide-x-transition" bottom right>
             <template v-slot:activator="{ on, attrs }">
               <v-btn
@@ -72,7 +72,7 @@
             Top Artist</router-link
           >
         </div>
-        <div class="mx-4">
+        <div class="mx-4 py-2">
           <!-- <v-menu transition="slide-x-transition" bottom right>
             <template v-slot:activator="{ on, attrs }">
               <v-btn

@@ -2,7 +2,15 @@
   <div>
     <v-container class="mx-auto my-5">
       <v-row>
+        <v-col class="text-center" cols="12" v-if="!tags.length">
+          <v-progress-circular
+            :size="100"
+            color="primary"
+            indeterminate
+          ></v-progress-circular>
+        </v-col>
         <v-col
+          v-else
           class="my-2"
           cols="12"
           sm="6"
@@ -11,11 +19,7 @@
           v-for="tag in tags"
           :key="tag.id"
         >
-          <router-link
-            @click="getTag()"
-            class="picPosition"
-            :to="`/tag/${tag.text}`"
-          >
+          <router-link class="picPosition" :to="`/tag/${tag.text}`">
             <span
               ><img style="width: 100%; max-width: 230px" :src="tag.img" />
               <span class="colorPosition">
@@ -115,6 +119,6 @@ export default {
   left: 0;
   color: white;
   font-size: 22px;
-  background-color: rgba(73, 76, 53, 0.356);
+  background-color: rgba(98, 102, 67, 0.61);
 }
 </style>

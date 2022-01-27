@@ -1,73 +1,17 @@
 <template>
   <div>
-    <v-container fluid>
-      <v-row>
-        <v-col cols="12">
-          <v-img
-            class="picPosition"
-            style="width: 100%; max-height: 300px; background-position: center"
-            gradient="to bottom left, rgba(68,55,55,.3), rgba(94,11,11,.7)"
-            src="../assets/main.jpg"
-            alt=""
-          >
-            <div class="infoPosition">
-              <p class="white--text text-md-h3 text-h4 font-weight-black">
-                {{ artistInfo.name }}
-              </p>
-              <span class="d-flex white--text">
-                <span>
-                  <p class="mb-1 text-caption">Listeners</p>
-                  <p class="font-weight-black">
-                    {{ artistInfo.stats.listeners }}
-                  </p>
-                </span>
-                <span class="px-5"
-                  ><p class="mb-1 text-caption">Scrobbles</p>
-                  <p class="font-weight-black">
-                    {{ artistInfo.stats.playcount }}
-                  </p></span
-                >
-              </span>
-            </div></v-img
-          >
-        </v-col>
-      </v-row>
-    </v-container>
-    <v-container class="mx-auto py-10">
-      <v-row>
-        <v-col cols="12" md="7">
-          <span v-html="artistInfo.bio.summary"></span>
-
-          <br />
-          <br />
-          <span>
-            <span v-for="(link, index) in artistInfo.tags.tag" :key="index">
-              <a :href="link.url">
-                <v-btn class="ma-2" outlined color="indigo"
-                  >{{ link.name }}
-                </v-btn></a
-              >
-            </span>
-          </span>
-        </v-col>
-        <v-col cols="12" md="5">
-          <p class="text-h5 font-weight-black pl-10">Similar To</p>
-        </v-col>
-      </v-row>
-    </v-container>
-
     <v-container class="mx-auto">
       <v-row class="py-5">
-        <!-- <v-col cols="12" class="pa-5">
+        <v-col cols="12" class="pa-5">
           <v-form ref="form" @submit.prevent="getArtist" lazy-validation>
             <v-select v-model="artistName" :items="items" required></v-select>
             <v-btn class="mr-4" type="submit"> submit </v-btn>
           </v-form>
-        </v-col> -->
-        <v-col cols="12" md="8"
-          ><p class="text-h4 font-weight-black px-3">Albums</p></v-col
+        </v-col>
+        <v-col cols="12" md="6"
+          ><p class="text-h4 px-3">Top Artists Albums</p></v-col
         >
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <v-toolbar flat color="transparent">
             <v-text-field
               v-model="search"
@@ -207,10 +151,11 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    // artistName: "jony",
+    message: "assalomu alekum",
+    artistName: "jony",
     search: "",
     foundBases: [],
-    // items: ["jony", "gafur", "elman", "eminem", "andro"],
+    items: ["jony", "gafur", "elman", "eminem", "andro"],
     bases: [
       { id: 1, title: "Audio Streaming Platforms" },
       { id: 2, title: "Make Your Own Radio Station" },
@@ -218,15 +163,9 @@ export default {
       { id: 4, title: "Top 10 Songs of 2021" },
     ],
   }),
-  created() {
-    console.log(this.$route.params.artist);
-    this.getArtistTopAlbums(this.$route.params.artist);
-    this.getArtistInfoTopAlbums(this.$route.params.artist);
-  },
+
   computed: {
     ...mapGetters("artist", ["artist"]),
-    ...mapGetters("artistInfo", ["artistInfo"]),
-
     findMusic: function () {
       return this.artist.filter((list) => {
         return list.name.includes(
@@ -235,9 +174,15 @@ export default {
       });
     },
   },
+  mounted() {
+    this.getArtistTopAlbums(this.artistName);
+  },
   methods: {
     ...mapActions("artist", ["getArtistTopAlbums"]),
-    ...mapActions("artistInfo", ["getArtistInfoTopAlbums"]),
+    getArtist() {
+      console.log(this.artistName);
+      this.getArtistTopAlbums(this.artistName);
+    },
   },
 };
 </script>
@@ -251,17 +196,9 @@ export default {
 .v-progress-circular {
   margin: 1rem;
 }
-.picPosition {
-  position: relative;
-  margin: 0 auto;
-}
 .imgPosition {
   position: relative;
-}
-.infoPosition {
-  position: absolute;
-  top: 50px;
-  left: 35px;
+  margin: 0 auto;
 }
 .playPosition {
   position: absolute;

@@ -35,17 +35,18 @@
               v-for="list in findAlbum"
               :key="list.id"
             >
-              <v-card
-                class="
-                  mx-auto
-                  d-md-block d-flex
-                  align-items-center
-                  grey
-                  lighten-2
-                "
-                outlined
-              >
-                <!-- <v-list-item three-line>
+              <router-link :to="`/artist/${list.artist.name}`">
+                <v-card
+                  class="
+                    mx-auto
+                    d-md-block d-flex
+                    align-items-center
+                    grey
+                    lighten-2
+                  "
+                  outlined
+                >
+                  <!-- <v-list-item three-line>
                 <v-list-item-content>
                   <v-list-item-title class="text-h5 mb-1">
                     {{ list.artist.name }}
@@ -61,64 +62,67 @@
                   /></a>
                 </v-list-item-action>
               </v-list-item> -->
-                <div
-                  class="d-flex justify-space-around"
-                  v-for="(picture, index) in list.image"
-                  :key="index"
-                >
                   <div
-                    class="imgPosition d-md-block d-none"
-                    v-if="picture.size === 'extralarge'"
+                    class="d-flex justify-space-around"
+                    v-for="(picture, index) in list.image"
+                    :key="index"
                   >
-                    <img style="width: 100%" :src="picture['#text']" />
-                    <span class="playPosition"
+                    <div
+                      class="imgPosition d-md-block d-none"
+                      v-if="picture.size === 'extralarge'"
+                    >
+                      <img style="width: 100%" :src="picture['#text']" />
+                      <span class="playPosition"
+                        ><a href="https://www.last.fm/music/BTS">
+                          <img width="40" src="../assets/play.png" alt="" /></a
+                      ></span>
+                      <span class="linkPosition">
+                        <a class="text-h6 white--text" :href="list.url">{{
+                          list.name
+                        }}</a
+                        ><br />
+                        <a
+                          class="text-caption white--text"
+                          :href="list.artist.url"
+                          >{{ list.artist.name }}</a
+                        >
+                      </span>
+                    </div>
+                    <div
+                      class="imgPosition d-md-none d-block"
+                      v-if="picture.size === 'medium'"
+                    >
+                      <img style="width: 100%" :src="picture['#text']" />
+                      <!-- <span class="playPosition"
                       ><a href="https://www.last.fm/music/BTS">
-                        <img width="40" src="../assets/play.png" alt="" /></a
-                    ></span>
-                    <span class="linkPosition">
-                      <a class="text-h6 white--text" :href="list.url">{{
-                        list.name
-                      }}</a
+                        <img width="30" src="../assets/play.png" alt="" /></a
+                    ></span> -->
+                    </div>
+                  </div>
+                  <div class="d-md-block d-none">
+                    <p class="text-caption px-2 py-3 mb-0">
+                      Popular right now on Last.fm
+                    </p>
+                  </div>
+                  <div class="px-2 d-md-none d-block">
+                    <span>
+                      <a
+                        class="text-caption font-weight-black black--text"
+                        :href="list.url"
+                        >{{ list.name }}</a
                       ><br />
                       <a
-                        class="text-caption white--text"
+                        class="text-caption black--text"
                         :href="list.artist.url"
                         >{{ list.artist.name }}</a
                       >
                     </span>
+                    <p class="text-caption mb-0">
+                      Popular right now on Last.fm
+                    </p>
                   </div>
-                  <div
-                    class="imgPosition d-md-none d-block"
-                    v-if="picture.size === 'medium'"
-                  >
-                    <img style="width: 100%" :src="picture['#text']" />
-                    <!-- <span class="playPosition"
-                      ><a href="https://www.last.fm/music/BTS">
-                        <img width="30" src="../assets/play.png" alt="" /></a
-                    ></span> -->
-                  </div>
-                </div>
-                <div class="d-md-block d-none">
-                  <p class="text-caption px-2 py-3 mb-0">
-                    Popular right now on Last.fm
-                  </p>
-                </div>
-                <div class="px-2 d-md-none d-block">
-                  <span>
-                    <a
-                      class="text-caption font-weight-black black--text"
-                      :href="list.url"
-                      >{{ list.name }}</a
-                    ><br />
-                    <a
-                      class="text-caption black--text"
-                      :href="list.artist.url"
-                      >{{ list.artist.name }}</a
-                    >
-                  </span>
-                  <p class="text-caption mb-0">Popular right now on Last.fm</p>
-                </div>
-              </v-card>
+                </v-card></router-link
+              >
               <!-- <v-card elevation="9" outlined>
             <a :href="list.url">{{ list.name }}</a>
           </v-card> -->

@@ -1,12 +1,12 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import Artist from "../views/Artist.vue";
-import TopAlbum from "../views/TopAlbum.vue";
 import Tags from "../views/Tags.vue";
+import Error from "@/components/Error";
+import Artist from "../views/Artist.vue";
 import SpecificTagInfo from "@/views/SpecificTagInfo";
-Vue.use(VueRouter);
 
+Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
@@ -29,9 +29,13 @@ const routes = [
     component: Artist,
   },
   {
-    path: "/top-album",
-    name: "TopAlbum",
-    component: TopAlbum,
+    path: "/artist/:artist",
+    name: "artist-info",
+    component: Artist,
+  },
+  {
+    path: "*",
+    component: Error,
   },
 ];
 
