@@ -18,7 +18,7 @@
                 <span>
                   <p class="mb-1 text-caption">Listeners</p>
                   <p class="font-weight-black">
-                    {{ artistInfo.stats.listeners }}
+                    {{ artistInfo.stats.listeners || "" }}
                   </p>
                 </span>
                 <span class="px-5"
@@ -35,12 +35,12 @@
     </v-container>
     <v-container class="mx-auto py-10">
       <v-row>
-        <v-col cols="12" md="7">
+        <v-col cols="12" md="7" class="px-4">
           <span v-html="artistInfo.bio.summary"></span>
 
           <br />
           <br />
-          <span>
+          <span class="d-flex flex-wrap">
             <span v-for="(link, index) in artistInfo.tags.tag" :key="index">
               <a :href="link.url">
                 <v-btn class="ma-2" outlined color="indigo"
@@ -50,8 +50,31 @@
             </span>
           </span>
         </v-col>
-        <v-col cols="12" md="5">
-          <p class="text-h5 font-weight-black pl-10">Similar To</p>
+        <v-col cols="12" md="1"></v-col>
+        <v-col cols="12" md="4" class="px-3">
+          <p class="text-h5 font-weight-black">Similar To</p>
+          <span class="d-flex flex-wrap">
+            <span v-if="!artistInfo.similar.artist.length">
+              <img
+                style="width: 100%; max-width: 100px"
+                src="../assets/fail.png"
+                alt=""
+              />
+            </span>
+
+            <a
+              v-else
+              v-for="(info, index) in artistInfo.similar.artist"
+              :key="index"
+              :href="info.url"
+              class="mx-2 black--text"
+            >
+              <span><img class="similarPic" src="../assets/lastfm.png" /></span>
+              <span
+                ><p class="text-center">{{ info.name }}</p></span
+              >
+            </a>
+          </span>
         </v-col>
       </v-row>
     </v-container>
@@ -132,7 +155,15 @@
                     v-if="picture.size === 'extralarge'"
                     class="imgPosition d-md-block d-none"
                   >
-                    <img style="width: 100%" :src="picture['#text']" />
+                    <span v-if="!picture['#text'].length">
+                      <img
+                        style="width: 100%; height: 235px"
+                        src="../assets/file.svg"
+                    /></span>
+
+                    <span v-else>
+                      <img style="width: 100%" :src="picture['#text']"
+                    /></span>
 
                     <span class="playPosition"
                       ><a :href="list.url">
@@ -154,7 +185,15 @@
                     class="imgPosition d-md-none d-block"
                     v-if="picture.size === 'medium'"
                   >
-                    <img style="width: 100%" :src="picture['#text']" />
+                    <span v-if="!picture['#text'].length"
+                      ><img
+                        style="width: 100%; max-width: 78px; height: auto"
+                        src="../assets/file.svg"
+                        alt=""
+                    /></span>
+                    <span v-else
+                      ><img style="width: 100%" :src="picture['#text']"
+                    /></span>
                   </div>
                 </div>
                 <div class="d-md-block d-none">
@@ -207,10 +246,8 @@ export default {
   name: "HelloWorld",
 
   data: () => ({
-    // artistName: "jony",
     search: "",
     foundBases: [],
-    // items: ["jony", "gafur", "elman", "eminem", "andro"],
     bases: [
       { id: 1, title: "Audio Streaming Platforms" },
       { id: 2, title: "Make Your Own Radio Station" },
@@ -273,5 +310,11 @@ export default {
   bottom: 25px;
   left: 18px;
   order: 100;
+}
+.similarPic {
+  width: 100%;
+  max-width: 88px;
+  height: auto;
+  border-radius: 100%;
 }
 </style>

@@ -88,6 +88,46 @@ export default {
           text: "classical",
           img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/683eceb3dee1462e23102012f8440799.jpg",
         },
+        {
+          id: 11,
+          text: "punk",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/f8cc3f9e0edc1e486cadf93d297f4d06.jpg",
+        },
+        {
+          id: 12,
+          text: "80s",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/e50002791a23fd4807266ce52b334e5b.jpg",
+        },
+        {
+          id: 13,
+          text: "acoustic",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/51a01c03f2f947771003f236c408683a.jpg",
+        },
+        {
+          id: 14,
+          text: "hardcore",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/d196c6a228991c6496c4abcdcfe4a018.jpg",
+        },
+        {
+          id: 15,
+          text: "country",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/5af78843a78af10d16879ff877a59696.jpg",
+        },
+        {
+          id: 16,
+          text: "blues",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/aa329aac77504de38654a399d28f127a.jpg",
+        },
+        {
+          id: 17,
+          text: "alternative",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/e5c21d51b912602a5ee9f5086106cbbe.jpg",
+        },
+        {
+          id: 18,
+          text: "rap",
+          img: "https://lastfm.freetls.fastly.net/i/u/avatar300s/9b4011390c4267ce1f91bd672c15dffb.jpg",
+        },
       ],
     };
   },
