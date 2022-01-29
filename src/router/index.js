@@ -1,9 +1,10 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-import Tags from "../views/Tags.vue";
+import Home from "@/views/Home";
+import Tags from "@/views/Tags";
 import Error from "@/components/Error";
-import Artist from "../views/Artist.vue";
+import Artist from "@/views/Artist";
+import Direct from "@/views/Direct";
 import SpecificTagInfo from "@/views/SpecificTagInfo";
 
 Vue.use(VueRouter);
@@ -32,6 +33,11 @@ const routes = [
     path: "/artist/:artist",
     name: "artist-info",
     component: Artist,
+  },
+  {
+    path: "/artist/:artist/:song",
+    name: "artist-song-info",
+    component: Direct,
   },
   {
     path: "*",

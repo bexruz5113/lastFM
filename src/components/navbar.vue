@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbarFixed">
     <v-app-bar color="grey darken-4" dark>
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
@@ -92,5 +92,12 @@ export default {
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+}
+.navbarFixed {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  left: 0;
 }
 </style>

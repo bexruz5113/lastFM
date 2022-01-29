@@ -120,103 +120,96 @@
               v-for="list in findMusic"
               :key="list.id"
             >
-              <v-card
-                class="
-                  grey
-                  lighter-2
-                  mx-auto
-                  d-md-block d-flex
-                  align-items-center
-                "
-                outlined
-              >
-                <!-- <v-list-item three-line>
-                <v-list-item-content>
-                  <v-list-item-title class="text-h5 mb-1">
-                    {{ list.artist.name }}
-                  </v-list-item-title>
-                  <v-list-item-subtitle>{{
-                    list.artist.mbid
-                  }}</v-list-item-subtitle>
-                </v-list-item-content>
-
-                <v-list-item-action>
-                  <a href="https://www.last.fm/music/BTS">
-                    <img width="60" src="../assets/play.png" alt=""
-                  /></a>
-                </v-list-item-action>
-              </v-list-item> -->
-                <div
-                  class="d-flex justify-space-around"
-                  v-for="(picture, index) in list.image"
-                  :key="index"
+              <router-link :to="`/artist/${list.artist.name}/${list.name}`">
+                <v-card
+                  class="
+                    grey
+                    lighter-2
+                    mx-auto
+                    d-md-block d-flex
+                    align-items-center
+                  "
+                  outlined
                 >
                   <div
-                    v-if="picture.size === 'extralarge'"
-                    class="imgPosition d-md-block d-none"
+                    class="d-flex justify-space-around"
+                    v-for="(picture, index) in list.image"
+                    :key="index"
                   >
-                    <span v-if="!picture['#text'].length">
-                      <img
-                        style="width: 100%; height: 235px"
-                        src="../assets/file.svg"
-                    /></span>
+                    <div
+                      v-if="picture.size === 'extralarge'"
+                      class="imgPosition d-md-block d-none"
+                    >
+                      <span v-if="!picture['#text'].length">
+                        <img
+                          style="width: 100%; height: 235px"
+                          src="../assets/file.svg"
+                      /></span>
 
-                    <span v-else>
-                      <img style="width: 100%" :src="picture['#text']"
-                    /></span>
+                      <span v-else>
+                        <img style="width: 100%" :src="picture['#text']"
+                      /></span>
 
-                    <span class="playPosition"
-                      ><a :href="list.url">
-                        <img width="40" src="../assets/play.png" alt="" /></a
-                    ></span>
-                    <span class="linkPosition">
-                      <a class="text-h6 white--text" :href="list.url">{{
-                        list.name
-                      }}</a
-                      ><br />
-                      <a
-                        class="text-caption white--text"
-                        :href="list.artist.url"
-                        >{{ list.artist.name }}</a
-                      >
+                      <span class="playPosition"
+                        ><a :href="list.url">
+                          <img width="40" src="../assets/play.png" alt="" /></a
+                      ></span>
+                      <span class="linkPosition">
+                        <a class="text-h6 white--text" :href="list.url">{{
+                          list.name
+                        }}</a
+                        ><br />
+                        <a
+                          class="text-caption white--text"
+                          :href="list.artist.url"
+                          >{{ list.artist.name }}</a
+                        >
+                      </span>
+                    </div>
+                    <div
+                      class="imgPosition d-md-none d-block"
+                      v-if="picture.size === 'medium'"
+                    >
+                      <span v-if="!picture['#text'].length"
+                        ><img
+                          style="width: 100%; max-width: 78px; height: auto"
+                          src="../assets/file.svg"
+                          alt=""
+                      /></span>
+                      <span v-else
+                        ><img style="width: 100%" :src="picture['#text']"
+                      /></span>
+                    </div>
+                  </div>
+                  <div class="d-md-block d-none">
+                    <p class="text-caption px-2 py-3 mb-0">
+                      Popular right now on Last.fm
+                    </p>
+                  </div>
+                  <div class="px-2 d-md-none d-block">
+                    <span class="d-block">
+                      <span>
+                        <a
+                          class="text-caption font-weight-black black--text"
+                          :href="list.url"
+                          >{{ list.name }}</a
+                        ><br />
+                        <a
+                          class="text-caption black--text"
+                          :href="list.artist.url"
+                          >{{ list.artist.name }}</a
+                        >
+                      </span>
+
+                      <span>
+                        <p class="mb-0 text-caption">
+                          playcount: {{ list.playcount }}
+                        </p>
+                      </span>
                     </span>
                   </div>
-                  <div
-                    class="imgPosition d-md-none d-block"
-                    v-if="picture.size === 'medium'"
-                  >
-                    <span v-if="!picture['#text'].length"
-                      ><img
-                        style="width: 100%; max-width: 78px; height: auto"
-                        src="../assets/file.svg"
-                        alt=""
-                    /></span>
-                    <span v-else
-                      ><img style="width: 100%" :src="picture['#text']"
-                    /></span>
-                  </div>
-                </div>
-                <div class="d-md-block d-none">
-                  <p class="text-caption px-2 py-3 mb-0">
-                    Popular right now on Last.fm
-                  </p>
-                </div>
-                <div class="px-2 d-md-none d-block">
-                  <span>
-                    <a
-                      class="text-caption font-weight-black black--text"
-                      :href="list.url"
-                      >{{ list.name }}</a
-                    ><br />
-                    <a
-                      class="text-caption black--text"
-                      :href="list.artist.url"
-                      >{{ list.artist.name }}</a
-                    >
-                  </span>
-                  <p class="text-caption mb-0">Popular right now on Last.fm</p>
-                </div>
-              </v-card>
+                </v-card></router-link
+              >
             </v-col>
           </v-row>
         </v-col>
@@ -247,7 +240,6 @@ export default {
 
   data: () => ({
     search: "",
-    foundBases: [],
     bases: [
       { id: 1, title: "Audio Streaming Platforms" },
       { id: 2, title: "Make Your Own Radio Station" },
@@ -257,12 +249,12 @@ export default {
   }),
   created() {
     console.log(this.$route.params.artist);
-    this.getArtistTopAlbums(this.$route.params.artist);
     this.getArtistInfoTopAlbums(this.$route.params.artist);
+    this.getArtistTopAlbums(this.$route.params.artist);
   },
   computed: {
-    ...mapGetters("artist", ["artist"]),
     ...mapGetters("artistInfo", ["artistInfo"]),
+    ...mapGetters("artist", ["artist"]),
 
     findMusic: function () {
       return this.artist.filter((list) => {
@@ -273,8 +265,8 @@ export default {
     },
   },
   methods: {
-    ...mapActions("artist", ["getArtistTopAlbums"]),
     ...mapActions("artistInfo", ["getArtistInfoTopAlbums"]),
+    ...mapActions("artist", ["getArtistTopAlbums"]),
   },
 };
 </script>
