@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-container class="mx-auto">
+    <v-container class="mx-auto my-5">
       <v-row>
         <v-col cols="12" md="6"
           ><p class="text-h4 px-3">Artist's Song</p></v-col

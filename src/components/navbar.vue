@@ -1,43 +1,71 @@
 <template>
   <div class="navbarFixed">
     <v-app-bar color="grey darken-4" dark>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      <div class="pr-md-3 d-sm-block d-none">
+        <v-btn
+          v-for="(icon, index) in icons"
+          :key="index"
+          :class="{ 'show-btns': hover }"
+          :color="transparent"
+          icon
+        >
+          <v-icon :class="{ 'show-btns': hover }" :color="transparent">
+            {{ icon }}
+          </v-icon>
+        </v-btn>
+      </div>
 
       <v-toolbar-title>
         <router-link to="/"
           ><img
             src="https://www.last.fm/static/images/logo_animate.e1b8206ad4c7.gif" /></router-link
       ></v-toolbar-title>
-
       <v-spacer></v-spacer>
-      <v-btn class="mx-5" icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-      <v-menu open-on-hover bottom offset-y>
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            icon
-            v-bind="attrs"
-            v-on="on"
-            class="mx-2"
-            fab
-            dark
-            color="white"
-          >
-            <v-icon dark> mdi-account </v-icon>
-          </v-btn>
-        </template>
-
-        <v-list dark>
-          <v-list-item v-for="(item, i) in items" :key="i">
-            <v-list-item-title class="px-4"
-              ><a class="white--text" href="#">{{
-                item.title
-              }}</a></v-list-item-title
+      <div class="d-md-none d-block">
+        <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      </div>
+      <div class="d-md-flex align-md-center d-none">
+        <v-btn class="mx-5" icon>
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+        <router-link to="/"
+          ><p class="mb-0 mx-2 white--text">Home</p></router-link
+        >
+        <router-link to="/"
+          ><p class="mb-0 mx-2 white--text">Live</p></router-link
+        >
+        <router-link to="/"
+          ><p class="mb-0 mx-2 white--text">Music</p></router-link
+        >
+        <router-link to="/"
+          ><p class="mb-0 mx-2 white--text">Events</p></router-link
+        >
+        <v-menu open-on-hover bottom offset-y>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              icon
+              v-bind="attrs"
+              v-on="on"
+              class="mx-2"
+              fab
+              dark
+              color="white"
             >
-          </v-list-item>
-        </v-list>
-      </v-menu>
+              <v-icon dark> mdi-account </v-icon>
+            </v-btn>
+          </template>
+
+          <v-list dark>
+            <v-list-item v-for="(item, i) in items" :key="i">
+              <v-list-item-title class="px-4"
+                ><a class="white--text" href="#">{{
+                  item.title
+                }}</a></v-list-item-title
+              >
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
       <!-- <v-menu left bottom>
         <template v-slot:activator="{ on, attrs }">
           <v-btn icon v-bind="attrs" v-on="on">
@@ -72,6 +100,7 @@
 <script>
 export default {
   data: () => ({
+    icons: ["mdi-rewind", "mdi-play", "mdi-fast-forward"],
     items: [
       { title: "Bexruz Baxronov" },
       { title: "Notifications" },
@@ -92,6 +121,8 @@ export default {
   margin: 0;
   box-sizing: border-box;
   text-decoration: none;
+  font-family: Barlow, Open Sans, Lucida Grande, Helvetica Neue, Helvetica,
+    Arial, Sans-serif;
 }
 .navbarFixed {
   position: fixed;
@@ -99,5 +130,8 @@ export default {
   top: 0;
   z-index: 1;
   left: 0;
+}
+p {
+  font-size: 14px;
 }
 </style>

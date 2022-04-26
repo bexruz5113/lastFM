@@ -35,7 +35,7 @@
 
     <v-main>
       <Navbar />
-      <router-view />
+      <router-view class="pt-md-15 pt-12" />
       <Footer />
     </v-main>
   </v-app>
@@ -67,7 +67,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style>
 * {
   margin: 0;
   padding: 0;
